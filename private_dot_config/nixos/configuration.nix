@@ -231,6 +231,7 @@ enableSSHSupport = true;
       kubectl
       k9s
       neovim
+      pavucontrol
       ripgrep
       silver-searcher
       terraform
