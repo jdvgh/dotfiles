@@ -3,7 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, lib, pkgs, ... }:
-
+let
+  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
+in
 {
   # Enable OpenGL
   hardware.opengl = {
@@ -219,9 +223,9 @@ enableSSHSupport = true;
       flameshot
       fzf
       gitFull
+      gdk
       go
       google-chrome
-      google-cloud-sdk
       go-task
       hcloud
       kubectl
