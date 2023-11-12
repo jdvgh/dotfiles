@@ -7,7 +7,8 @@ let
   gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
     gke-gcloud-auth-plugin
   ]);
-in
+
+ in
 {
   # Enable OpenGL
   hardware.opengl = {
@@ -120,6 +121,7 @@ enableSSHSupport = true;
 		sway --unsupported-gpu -V > .sway-log 2>&1
 	fi
   '';
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
@@ -224,6 +226,7 @@ enableSSHSupport = true;
       fzf
       gitFull
       gdk
+      gnome.gnome-control-center
       go
       google-chrome
       go-task
@@ -246,7 +249,21 @@ users.defaultUserShell = pkgs.zsh;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
   environment.systemPackages = with pkgs; [
+    wayland
+    xdg-utils # for opening default programs when clicking links
+    glib # gsettings
+    dracula-theme # gtk theme
+    gnome3.adwaita-icon-theme  # default gnome cursors
+    swaylock
+    swayidle
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    bemenu # wayland clone of dmenu
+    mako # notification system developed by swaywm maintainer
+    wdisplays # tool to configure displays
     font-manager
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
