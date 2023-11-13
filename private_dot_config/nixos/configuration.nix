@@ -97,16 +97,17 @@ hardware.nvidia.prime = {
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.defaultSession = "gnome";
   # Display Manager ===========================================================
-  services.xserver.displayManager = {
-    sddm.enable = false;
-    gdm = {
-      enable = true;
-      wayland = true;
-    };
-  };
+##  services.xserver.displayManager = {
+##    sddm.enable = false;
+##    gdm = {
+##      enable = true;
+##      wayland = true;
+##    };
+##  };
 services.pcscd.enable = true;
 
 programs.gnupg = {
@@ -115,70 +116,70 @@ enable = true;
 enableSSHSupport = true;
 };
 };
-  # Sway Window Manager
-  environment.loginShellInit= ''
-	if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-		sway --unsupported-gpu -V > .sway-log 2>&1
-	fi
-  '';
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true; # so that gtk works properly
-
-    extraPackages = with pkgs; [
-      power-profiles-daemon
-
-      redshift # Redshift monitor colors.
-      swaylock
-      swayidle
-      swaynotificationcenter
-      libnotify
-
-      xdg-utils
-      flashfocus # Flash focus animations in sway.
-      copyq # Clipboard manager.
-
-      wl-clipboard # Wayland clipboard.
-      wf-recorder # Wayland screen recorder.
-      grim # Screenshot tool in Wayland.
-      slurp # Wayland region selector.
-      sway-contrib.grimshot # Main screenshot tool.
-      swappy # Edit tool for screenshots.
-
-      rofi # Application Launcher for waybar.
-      rofi-power-menu
-      rofi-bluetooth
-      rofi-systemd
-      rofimoji
-      playerctl # Player control in waybar.
-    ];
-
-    extraSessionCommands = ''
-      export WLR_NO_HARDWARE_CURSORS=1
-      export MOZ_ENABLE_WAYLAND=1
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-    '';
-  };
-
-  security.polkit.enable = true; # https://discourse.nixos.org/t/sway-does-not-start/22354/5
-
-  programs.waybar.enable = true;
-  fonts = {
-    fontconfig.enable = true;
-    fontDir.enable = true;
-
-    fonts = with pkgs; [
-      corefonts
-      ubuntu_font_family
-      fira
-      meslo-lgs-nf
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-    ];
-  };
+##  # Sway Window Manager
+##  environment.loginShellInit= ''
+##	if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+##		sway --unsupported-gpu -V > .sway-log 2>&1
+##	fi
+##  '';
+##
+##  programs.sway = {
+##    enable = true;
+##    wrapperFeatures.gtk = true; # so that gtk works properly
+##
+##    extraPackages = with pkgs; [
+##      power-profiles-daemon
+##
+##      redshift # Redshift monitor colors.
+##      swaylock
+##      swayidle
+##      swaynotificationcenter
+##      libnotify
+##
+##      xdg-utils
+##      flashfocus # Flash focus animations in sway.
+##      copyq # Clipboard manager.
+##
+##      wl-clipboard # Wayland clipboard.
+##      wf-recorder # Wayland screen recorder.
+##      grim # Screenshot tool in Wayland.
+##      slurp # Wayland region selector.
+##      sway-contrib.grimshot # Main screenshot tool.
+##      swappy # Edit tool for screenshots.
+##
+##      rofi # Application Launcher for waybar.
+##      rofi-power-menu
+##      rofi-bluetooth
+##      rofi-systemd
+##      rofimoji
+##      playerctl # Player control in waybar.
+##    ];
+##
+##    extraSessionCommands = ''
+##      export WLR_NO_HARDWARE_CURSORS=1
+##      export MOZ_ENABLE_WAYLAND=1
+##      export SDL_VIDEODRIVER=wayland
+##      export QT_QPA_PLATFORM=wayland
+##      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+##      export _JAVA_AWT_WM_NONREPARENTING=1
+##    '';
+##  };
+##
+##  security.polkit.enable = true; # https://discourse.nixos.org/t/sway-does-not-start/22354/5
+##
+##  programs.waybar.enable = true;
+##  fonts = {
+##    fontconfig.enable = true;
+##    fontDir.enable = true;
+##
+##    fonts = with pkgs; [
+##      corefonts
+##      ubuntu_font_family
+##      fira
+##      meslo-lgs-nf
+##      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+##    ];
+##  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -227,6 +228,7 @@ enableSSHSupport = true;
       gitFull
       gdk
       gnome.gnome-control-center
+      gnome.gnome-tweaks
       go
       google-chrome
       go-task
@@ -251,18 +253,20 @@ users.defaultUserShell = pkgs.zsh;
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-    wayland
+    gnome.gnome-session
+    gnome.gdm
+    # wayland
     xdg-utils # for opening default programs when clicking links
     glib # gsettings
     dracula-theme # gtk theme
     gnome3.adwaita-icon-theme  # default gnome cursors
-    swaylock
-    swayidle
+    # swaylock
+    # swayidle
     grim # screenshot functionality
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    bemenu # wayland clone of dmenu
-    mako # notification system developed by swaywm maintainer
+    # bemenu # wayland clone of dmenu
+    # mako # notification system developed by swaywm maintainer
     wdisplays # tool to configure displays
     font-manager
     git
