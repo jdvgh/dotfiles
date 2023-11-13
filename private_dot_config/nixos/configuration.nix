@@ -2,11 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+
 { config, lib, pkgs, ... }:
 let
   gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
     gke-gcloud-auth-plugin
   ]);
+    unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 
  in
 {
@@ -239,7 +243,7 @@ enableSSHSupport = true;
       pavucontrol
       ripgrep
       silver-searcher
-      terraform
+      unstable.terraform_1_6_0
       tmux
     #  thunderbird
     ];
@@ -248,11 +252,17 @@ programs.zsh.enable = true;
 users.defaultUserShell = pkgs.zsh;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+       unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
+    unzip
     gnome.gnome-session
     gnome.gdm
     # wayland
