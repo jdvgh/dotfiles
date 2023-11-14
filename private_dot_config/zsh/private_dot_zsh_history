@@ -1,6 +1,0 @@
-: 1699747125:0;git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-: 1699747139:0;exit
-: 1699747158:0;p10k configure
-: 1699747197:0;cat ~/.zshrc
-: 1699747265:0;echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.config/zsh/.zshrc
-: 1699747463:0;chezmoi add .config/zsh
