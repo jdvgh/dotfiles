@@ -8,9 +8,9 @@ let
   gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
     gke-gcloud-auth-plugin
   ]);
-    unstableTarball =
+    terraform160Tarball =
     fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+      https://github.com/NixOS/nixpkgs/archive/6608f1624a8dd9d001de8fc24baa9a2d929b0e82.tar.gz;
 
  in
 {
@@ -243,7 +243,7 @@ enableSSHSupport = true;
       pavucontrol
       ripgrep
       silver-searcher
-      unstable.terraform_1_6_0
+      terraform160.terraform_1_6_0
       tmux
     #  thunderbird
     ];
@@ -253,7 +253,7 @@ users.defaultUserShell = pkgs.zsh;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-       unstable = import unstableTarball {
+       terraform160 = import terraform160Tarball {
         config = config.nixpkgs.config;
       };
     };
