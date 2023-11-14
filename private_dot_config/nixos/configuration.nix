@@ -11,6 +11,9 @@ let
     terraform160Tarball =
     fetchTarball
       https://github.com/NixOS/nixpkgs/archive/6608f1624a8dd9d001de8fc24baa9a2d929b0e82.tar.gz;
+    unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 
  in
 {
@@ -94,7 +97,6 @@ hardware.nvidia.prime = {
     LC_NUMERIC = "de_DE.UTF-8";
     LC_PAPER = "de_DE.UTF-8";
     LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
   };
 
   # Enable the X11 windowing system.
@@ -233,7 +235,7 @@ enableSSHSupport = true;
       gdk
       gnome.gnome-control-center
       gnome.gnome-tweaks
-      go
+      unstable.go
       google-chrome
       go-task
       hcloud
@@ -243,7 +245,8 @@ enableSSHSupport = true;
       pavucontrol
       ripgrep
       silver-searcher
-      terraform160.terraform_1_6_0
+      terraform
+      # terraform160.terraform
       tmux
     #  thunderbird
     ];
@@ -256,6 +259,9 @@ users.defaultUserShell = pkgs.zsh;
        terraform160 = import terraform160Tarball {
         config = config.nixpkgs.config;
       };
+     unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
     };
 
   # List packages installed in system profile. To search, run:
@@ -263,6 +269,7 @@ users.defaultUserShell = pkgs.zsh;
 
   environment.systemPackages = with pkgs; [
     unzip
+    dig
     gnome.gnome-session
     gnome.gdm
     # wayland
@@ -288,6 +295,7 @@ users.defaultUserShell = pkgs.zsh;
     zsh
     # Programming - stolen from gabyx
     jq
+    kubernetes-helm
     yq
     shfmt
     shellcheck
