@@ -14,6 +14,9 @@ let
     unstableTarball =
     fetchTarball
       https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+    node2080Tarball = 
+      fetchTarball
+      https://github.com/NixOS/nixpkgs/archive/9957cd48326fe8dbd52fdc50dd2502307f188b0d.tar.gz;
 
  in
 {
@@ -217,6 +220,7 @@ enableSSHSupport = true;
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
   users.users.jonase = {
     isNormalUser = true;
     description = "j";
@@ -246,6 +250,9 @@ enableSSHSupport = true;
       ripgrep
       silver-searcher
       terraform
+      nodejs208.nodejs_20
+      nodejs208.yarn
+      nodejs208.yarn2nix
       # terraform160.terraform
       tmux
     #  thunderbird
@@ -262,12 +269,16 @@ users.defaultUserShell = pkgs.zsh;
      unstable = import unstableTarball {
         config = config.nixpkgs.config;
       };
+      nodejs208 = import node2080Tarball {
+        config = config.nixpkgs.config;
+      };
     };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
+
     unzip
     dig
     gnome.gnome-session
@@ -308,7 +319,6 @@ users.defaultUserShell = pkgs.zsh;
     libclang
     libtool
     llvm
-    nodejs
     openjdk
     rustup
     python311
