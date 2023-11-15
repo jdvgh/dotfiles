@@ -253,6 +253,8 @@ enableSSHSupport = true;
       nodejs208.nodejs_20
       nodejs208.yarn
       nodejs208.yarn2nix
+      spotify
+      discord
       # terraform160.terraform
       tmux
     #  thunderbird
