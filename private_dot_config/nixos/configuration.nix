@@ -245,7 +245,8 @@ users.defaultUserShell = pkgs.zsh;
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-
+ powertop
+ power-profiles-daemon
   vscode
 
     unzip
