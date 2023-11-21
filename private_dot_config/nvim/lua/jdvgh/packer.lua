@@ -375,4 +375,12 @@ use {
       vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
     end
 }
+
+
+
+use { 'alexghergh/nvim-tmux-navigation'}
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 end)

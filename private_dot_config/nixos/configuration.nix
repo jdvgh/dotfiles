@@ -27,6 +27,11 @@ let
   "${builtins.fetchGit { url = "https://github.com/jdvgh/nixos-hardware.git"; ref = "feat/lenovo-legion-15-ach6";}}/lenovo/legion/15ach6"
 ];
 
+# hardware.nvidia.prime.sync.enable = true;
+# hardware.nvidia.prime.offload.enable = false;
+# hardware.nvidia.prime.offload.enableOffloadCmd = false;
+
+
     
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -136,18 +141,18 @@ enableSSHSupport = true;
 ##  security.polkit.enable = true; # https://discourse.nixos.org/t/sway-does-not-start/22354/5
 ##
 ##  programs.waybar.enable = true;
-##  fonts = {
-##    fontconfig.enable = true;
-##    fontDir.enable = true;
-##
-##    fonts = with pkgs; [
-##      corefonts
-##      ubuntu_font_family
-##      fira
-##      meslo-lgs-nf
-##      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-##    ];
-##  };
+ fonts = {
+   fontconfig.enable = true;
+   fontDir.enable = true;
+
+   fonts = with pkgs; [
+     corefonts
+     ubuntu_font_family
+     fira
+     meslo-lgs-nf
+     (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+   ];
+ };
 
   # Configure keymap in X11
   services.xserver = {
@@ -201,6 +206,7 @@ enableSSHSupport = true;
       gnome.gnome-control-center
       gnome.gnome-tweaks
       unstable.go
+      unstable.bun
       killall
       google-chrome
       go-task
