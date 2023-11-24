@@ -24,15 +24,10 @@ let
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-  "${builtins.fetchGit { url = "https://github.com/jdvgh/nixos-hardware.git"; ref = "feat/lenovo-legion-15-ach6";}}/lenovo/legion/15ach6"
+  "${builtins.fetchGit { url = "https://github.com/jdvgh/nixos-hardware.git"; ref = "feat/lenovo-legion-15-ach6";}}/lenovo/legion/16ach6h"
 ];
 
-# hardware.nvidia.prime.sync.enable = true;
-# hardware.nvidia.prime.offload.enable = false;
-# hardware.nvidia.prime.offload.enableOffloadCmd = false;
 
-
-    
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -283,7 +278,7 @@ users.defaultUserShell = pkgs.zsh;
     # Programming - stolen from gabyx
     jq
     kubernetes-helm
-    yq
+    yq-go
     shfmt
     shellcheck
     llvmPackages_16.clang-unwrapped

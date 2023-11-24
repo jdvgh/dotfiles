@@ -26,7 +26,7 @@ end)
 --
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {},
+  ensure_installed = {gopls, jsonls, lua_ls, terraformls, tflint, tfsec, tsserver},
   handlers = {
     lsp_zero.default_setup,
   },
