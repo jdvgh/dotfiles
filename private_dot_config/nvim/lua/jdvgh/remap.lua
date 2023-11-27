@@ -9,7 +9,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("n","<leader>e", "<cmd>Neotree toggle<CR>")
+vim.keymap.set("n","<leader>e", "<cmd>Neotree toggle reveal<CR>")
 vim.keymap.set("n","<leader>o", function()
 	neotree = require("neo-tree").setup{}
 if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end 
