@@ -246,6 +246,9 @@ users.defaultUserShell = pkgs.zsh;
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
+  git-lfs
+  htop
+  pgcli
   qmk
  powertop
  power-profiles-daemon
