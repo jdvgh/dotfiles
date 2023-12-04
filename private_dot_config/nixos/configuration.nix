@@ -35,11 +35,7 @@ let
   boot.initrd.luks.devices."luks-99f1418e-d80c-4bc5-a9d3-3d04b545e0e4".device = "/dev/disk/by-uuid/99f1418e-d80c-4bc5-a9d3-3d04b545e0e4";
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -68,14 +64,6 @@ let
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.defaultSession = "gnome";
-  # Display Manager ===========================================================
-##  services.xserver.displayManager = {
-##    sddm.enable = false;
-##    gdm = {
-##      enable = true;
-##      wayland = true;
-##    };
-##  };
 services.pcscd.enable = true;
 
 programs.gnupg = {
@@ -84,58 +72,6 @@ enable = true;
 enableSSHSupport = true;
 };
 };
-##  # Sway Window Manager
-##  environment.loginShellInit= ''
-##	if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-##		sway --unsupported-gpu -V > .sway-log 2>&1
-##	fi
-##  '';
-##
-##  programs.sway = {
-##    enable = true;
-##    wrapperFeatures.gtk = true; # so that gtk works properly
-##
-##    extraPackages = with pkgs; [
-##      power-profiles-daemon
-##
-##      redshift # Redshift monitor colors.
-##      swaylock
-##      swayidle
-##      swaynotificationcenter
-##      libnotify
-##
-##      xdg-utils
-##      flashfocus # Flash focus animations in sway.
-##      copyq # Clipboard manager.
-##
-##      wl-clipboard # Wayland clipboard.
-##      wf-recorder # Wayland screen recorder.
-##      grim # Screenshot tool in Wayland.
-##      slurp # Wayland region selector.
-##      sway-contrib.grimshot # Main screenshot tool.
-##      swappy # Edit tool for screenshots.
-##
-##      rofi # Application Launcher for waybar.
-##      rofi-power-menu
-##      rofi-bluetooth
-##      rofi-systemd
-##      rofimoji
-##      playerctl # Player control in waybar.
-##    ];
-##
-##    extraSessionCommands = ''
-##      export WLR_NO_HARDWARE_CURSORS=1
-##      export MOZ_ENABLE_WAYLAND=1
-##      export SDL_VIDEODRIVER=wayland
-##      export QT_QPA_PLATFORM=wayland
-##      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-##      export _JAVA_AWT_WM_NONREPARENTING=1
-##    '';
-##  };
-##
-##  security.polkit.enable = true; # https://discourse.nixos.org/t/sway-does-not-start/22354/5
-##
-##  programs.waybar.enable = true;
  fonts = {
    fontconfig.enable = true;
    fontDir.enable = true;
@@ -167,16 +103,8 @@ enableSSHSupport = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
  virtualisation.docker.enable = true; 
@@ -186,44 +114,42 @@ enableSSHSupport = true;
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       alacritty
-      lsof
       bitwarden
       chezmoi
       curl
+      discord
       dmenu
       docker
       docker-compose
       firefox
       flameshot
       fzf
-      gitFull
       gdk
+      gitFull
       gnome.gnome-control-center
       gnome.gnome-tweaks
-      unstable.go
-      unstable.bun
-      killall
-      google-chrome
       go-task
-      hcloud
-      kubectl
+      google-chrome
       goreman
+      hcloud
+      k9s
+      killall
       krew
       kubecm
-      k9s
+      kubectl
+      lsof
       neovim
-      pavucontrol
-      ripgrep
-      silver-searcher
-      terraform
       nodejs208.nodejs_20
       nodejs208.yarn
       nodejs208.yarn2nix
+      pavucontrol
+      ripgrep
+      silver-searcher
       spotify
-      discord
-      # terraform160.terraform
+      terraform
       tmux
-    #  thunderbird
+      unstable.bun
+      unstable.go
     ];
   };
 programs.zsh.enable = true;
@@ -246,94 +172,63 @@ users.defaultUserShell = pkgs.zsh;
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-  git-lfs
-  htop
-  pgcli
-  qmk
- powertop
- power-profiles-daemon
-  vscode
-
-    unzip
-    dig
-    gnome.gnome-session
-    gnome.gdm
-    # wayland
-    xdg-utils # for opening default programs when clicking links
-    glib # gsettings
-    dracula-theme # gtk theme
-    gnome3.adwaita-icon-theme  # default gnome cursors
-    # swaylock
-    # swayidle
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    # bemenu # wayland clone of dmenu
-    # mako # notification system developed by swaywm maintainer
-    wdisplays # tool to configure displays
-    font-manager
-    git
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    lshw
-    pinentry-curses
-    pinentry
-    zsh
-    # Programming - stolen from gabyx
-    jq
-    kubernetes-helm
-    yq-go
-    shfmt
-    shellcheck
-    llvmPackages_16.clang-unwrapped
     cmake
+    dig
+    dracula-theme # gtk theme
+    font-manager
     gcc
     gdb
+    git
+    glib # gsettings
+    gnome.gdm
+    gnome.gnome-session
+    gnome3.adwaita-icon-theme  # default gnome cursors
     gnumake
     go
+    grim # screenshot functionality
+    inkscape # Vector graphics
+    jq
+    krita # Painting
+    kubernetes-helm
     libclang
     libtool
     llvm
-    openjdk
-    rustup
-    python311
-    python311Packages.pip
-    python311Packages.black
-    nodePackages.pyright
-    stylua
+    llvmPackages_16.clang-unwrapped
+    lshw
     nodePackages.prettier
-    texlive.combined.scheme-full
+    nodePackages.pyright
+    openjdk
+    pinentry
+    pinentry-curses
+    python311
+    python311Packages.black
+    python311Packages.pip
+    rustup
+    shellcheck
+    shfmt
     signal-desktop # Messaging app
+    slurp # screenshot functionality
+    stylua
+    texlive.combined.scheme-full
+    unzip
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vlc # Movie player
-    inkscape # Vector graphics
-    krita # Painting
+    wdisplays # tool to configure displays
+    wget
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    xdg-utils # for opening default programs when clicking links
+    yq-go
+    zsh
+    git-lfs
+    htop
+    pgcli
+    qmk
+    unstable.delve
+    vscode
+    power-profiles-daemon
+    powertop
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }

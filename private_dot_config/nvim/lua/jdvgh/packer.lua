@@ -383,4 +383,8 @@ use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
+use {'mfussenegger/nvim-dap'}
+use {'leoluz/nvim-dap-go'}
+use {'folke/neodev.nvim'}
+use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 end)
