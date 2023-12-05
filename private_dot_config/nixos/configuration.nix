@@ -224,6 +224,8 @@ users.defaultUserShell = pkgs.zsh;
     pgcli
     qmk
     unstable.delve
+    unstable.earthly
+    unstable.evans
     vscode
     power-profiles-daemon
     powertop
