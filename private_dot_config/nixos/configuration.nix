@@ -8,16 +8,9 @@ let
   gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
     gke-gcloud-auth-plugin
   ]);
-    terraform160Tarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/6608f1624a8dd9d001de8fc24baa9a2d929b0e82.tar.gz;
     unstableTarball =
     fetchTarball
       https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
-    node2080Tarball = 
-      fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/9957cd48326fe8dbd52fdc50dd2502307f188b0d.tar.gz;
-
  in
 {
 
@@ -76,7 +69,7 @@ enableSSHSupport = true;
    fontconfig.enable = true;
    fontDir.enable = true;
 
-   fonts = with pkgs; [
+   packages = with pkgs; [
      corefonts
      ubuntu_font_family
      fira
@@ -115,14 +108,14 @@ enableSSHSupport = true;
     packages = with pkgs; [
       alacritty
       bitwarden
+      brave
+      buf
       chezmoi
       curl
-      discord
       dmenu
       docker
       docker-compose
       firefox
-      flameshot
       fzf
       gdk
       gitFull
@@ -137,11 +130,12 @@ enableSSHSupport = true;
       krew
       kubecm
       kubectl
+      unstable.lazygit
       lsof
       neovim
-      nodejs208.nodejs_20
-      nodejs208.yarn
-      nodejs208.yarn2nix
+      nodejs_20
+      yarn
+      yarn2nix
       pavucontrol
       ripgrep
       silver-searcher
@@ -149,6 +143,8 @@ enableSSHSupport = true;
       terraform
       tmux
       unstable.bun
+      unstable.discord
+      unstable.flameshot
       unstable.go
     ];
   };
@@ -157,13 +153,7 @@ users.defaultUserShell = pkgs.zsh;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-       terraform160 = import terraform160Tarball {
-        config = config.nixpkgs.config;
-      };
      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-      nodejs208 = import node2080Tarball {
         config = config.nixpkgs.config;
       };
     };
@@ -172,12 +162,12 @@ users.defaultUserShell = pkgs.zsh;
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-    cmake
     dig
     dracula-theme # gtk theme
     font-manager
     gcc
     gdb
+    gettext
     git
     glib # gsettings
     gnome.gdm
