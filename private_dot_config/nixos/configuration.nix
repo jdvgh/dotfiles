@@ -11,6 +11,18 @@ let
     unstableTarball =
     fetchTarball
       https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+
+  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+
+  hyprland-flake = (import flake-compat {
+    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+  }).defaultNix;
+  hyprland-contrib = (import flake-compat {
+    src = builtins.fetchTarball "https://github.com/hyprwm/contrib/archive/master.tar.gz";
+  }).defaultNix;
+  emanote-flake = (import flake-compat {
+    src = builtins.fetchTarball "https://github.com/srid/emanote/archive/master.tar.gz";
+  }).defaultNix;
  in
 {
 
@@ -19,8 +31,7 @@ let
       ./hardware-configuration.nix
   "${builtins.fetchGit { url = "https://github.com/jdvgh/nixos-hardware.git"; ref = "feat/lenovo-legion-15-ach6";}}/lenovo/legion/16ach6h"
 ];
-
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -51,14 +62,36 @@ let
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = 
+  {
+      enable = true;
+  # Configure keymap in X11
+    layout = "eu";
+    xkbVariant = "";
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.defaultSession = "gnome";
+  displayManager.gdm.enable = true;
+  displayManager.gdm.wayland = true;
+  desktopManager.gnome.enable = true;
+  displayManager.defaultSession = "gnome";
+  };
 services.pcscd.enable = true;
-
+# hyprland
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+programs.waybar = {
+      enable = true;
+      # package = pkgs.waybar.overrideAttrs (oldAttrs: {
+      #   mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      # });
+    };
+programs.hyprland = {
+    enable = true;
+     package = hyprland-flake.packages.${pkgs.system}.hyprland;
+    xwayland.enable = true;
+};
 programs.gnupg = {
 agent = {
 enable = true;
@@ -78,11 +111,6 @@ enableSSHSupport = true;
    ];
  };
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "eu";
-    xkbVariant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -106,7 +134,7 @@ enableSSHSupport = true;
     description = "j";
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
-      alacritty
+      unstable.alacritty
       bitwarden
       brave
       buf
@@ -125,7 +153,7 @@ enableSSHSupport = true;
       google-chrome
       goreman
       hcloud
-      k9s
+      unstable.k9s
       killall
       krew
       kubecm
@@ -146,6 +174,8 @@ enableSSHSupport = true;
       unstable.discord
       unstable.flameshot
       unstable.go
+      wofi
+      zk
     ];
   };
 programs.zsh.enable = true;
@@ -162,6 +192,7 @@ users.defaultUserShell = pkgs.zsh;
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
+    unstable.cargo
     dig
     dracula-theme # gtk theme
     font-manager
@@ -176,14 +207,16 @@ users.defaultUserShell = pkgs.zsh;
     gnumake
     go
     grim # screenshot functionality
+    unstable.hyprpaper
+    hyprland-contrib.packages.${pkgs.system}.grimblast
+    emanote-flake.packages.${pkgs.system}.emanote
+    unstable.hyprpicker
     inkscape # Vector graphics
     jq
     krita # Painting
     kubernetes-helm
     libclang
     libtool
-    llvm
-    llvmPackages_16.clang-unwrapped
     lshw
     nodePackages.prettier
     nodePackages.pyright
@@ -193,12 +226,13 @@ users.defaultUserShell = pkgs.zsh;
     python311
     python311Packages.black
     python311Packages.pip
-    rustup
+    unstable.rustup
     shellcheck
     shfmt
     signal-desktop # Messaging app
     slurp # screenshot functionality
     stylua
+    unstable.swappy
     texlive.combined.scheme-full
     unzip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -207,6 +241,9 @@ users.defaultUserShell = pkgs.zsh;
     wget
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     xdg-utils # for opening default programs when clicking links
+    qt5.qtwayland
+    qt6.qmake
+    qt6.qtwayland
     yq-go
     zsh
     git-lfs
@@ -220,7 +257,23 @@ users.defaultUserShell = pkgs.zsh;
     power-profiles-daemon
     powertop
   ];
-
+  # environment.sessionVariables = {
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   XDG_SESSION_TYPE = "wayland";
+  #   GBM_BACKEND = "nvidia-drm";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #   NIXOS_OZONE_WL = "1";
+  #   MOZ_ENABLE_WAYLAND = "1";
+  #   SDL_VIDEODRIVER = "wayland";
+  #   _JAVA_AWT_WM_NONREPARENTING = "1";
+  #   CLUTTER_BACKEND = "wayland";
+  #   WLR_RENDERER = "vulkan";
+  #   XDG_CURRENT_DESKTOP = "Hyprland";
+  #   XDG_SESSION_DESKTOP = "Hyprland";
+  #   GTK_USE_PORTAL = "1";
+  #   NIXOS_XDG_OPEN_USE_PORTAL = "1";
+  # }; 
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }

@@ -12,14 +12,22 @@ use {
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
+use ({ 
+    "catppuccin/nvim",
+    as = "catppuccin", 
 
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function() 
-		  vim.cmd('colorscheme rose-pine-dawn')
+
+	 config = function() 
+	   vim.cmd('colorscheme catppuccin-latte')
 	  end
-  })
+})
+  -- use({
+	 --  'rose-pine/neovim',
+	 --  as = 'rose-pine',
+	 --  config = function() 
+		--   vim.cmd('colorscheme rose-pine-dawn')
+	 --  end
+  -- })
 
 use {
     "williamboman/mason.nvim"
@@ -387,4 +395,5 @@ use {'mfussenegger/nvim-dap'}
 use {'leoluz/nvim-dap-go'}
 use {'folke/neodev.nvim'}
 use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+use("zk-org/zk-nvim")
 end)
