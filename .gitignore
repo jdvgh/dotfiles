@@ -1,3 +1,6 @@
 packer_compiled.lua
 private_dot_zsh_history
 dot_zcompdump*
+nixos-2311.iso
+nixos.qcow2
+result/
