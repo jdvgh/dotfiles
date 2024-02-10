@@ -4,3 +4,4 @@ dot_zcompdump*
 nixos-2311.iso
 nixos.qcow2
 result/
+readonly_dot_zcompdump*
