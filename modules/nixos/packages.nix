@@ -62,6 +62,8 @@
     gnome3.adwaita-icon-theme  # default gnome cursors
     gnumake
     grim # screenshot functionality
+    grimblast
+    swappy
     hyprpaper
     gettext
     glib
