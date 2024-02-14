@@ -23,13 +23,3 @@ end
     "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>"
   )
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
--- vim.keymap.set("n","<leader>o", function() if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end )
--- vim.keymap.set("n","<leader>o", function() if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end )
-
--- vim.keymap.set("n","<leader>o", function() if vim.bo.filetype == "neo-tree" then  vim.cmd.wincmd "p"   else  vim.cmd.Neotree "focus" end ) 
-
--- vim.keymap.set({"n", "v","i","x"}, "<Down>", "<Nop>")
--- vim.keymap.set({"n", "v","i","x"}, "<Right>", "<Nop>")
--- vim.keymap.set({"n", "v","i","x"}, "<Left>", "<Nop>")
--- vim.keymap.set({"n", "v","i","x"},"<Up>", "<Nop>")
-
