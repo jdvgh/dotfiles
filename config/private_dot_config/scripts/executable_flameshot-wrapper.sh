@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-flameshot gui
+QT_QPA_PLATFORM=wayland flameshot gui

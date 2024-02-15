@@ -111,7 +111,16 @@ enableSSHSupport = true;
    ];
  };
 
-
+# virtualisation:
+virtualisation.libvirtd = {
+    enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+}
+programs.virt-manager.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -132,7 +141,7 @@ enableSSHSupport = true;
   users.users.jonase = {
     isNormalUser = true;
     description = "j";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
     packages = with pkgs; [
       unstable.alacritty
       bitwarden
