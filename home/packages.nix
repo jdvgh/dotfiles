@@ -90,6 +90,10 @@ in {
 
     ## C
     gnumake
+    gcc
+    gdb
+    libclang
+    libtool
     # autoconf
     # libtool
     # pkgconf
