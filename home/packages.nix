@@ -79,6 +79,8 @@ in {
     rnix-lsp
     marksman
     lua-language-server
+    yaml-language-server
+    yamllint
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.bash-language-server
     nodePackages.vscode-json-languageserver
@@ -93,10 +95,19 @@ in {
     gcc
     gdb
     libclang
+    autoconf
     libtool
+    pkg-config
+
     # autoconf
     # libtool
     # pkgconf
+
+    ## C++
+    cmake
+    # cppcheck
+    # gcc13
+    # gdb
 
     ## Buf
     buf
