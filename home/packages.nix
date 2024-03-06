@@ -48,6 +48,7 @@ in {
     hcloud
     chezmoi
     terraform
+    luajit
     lazygit
     delta
     kubectl
