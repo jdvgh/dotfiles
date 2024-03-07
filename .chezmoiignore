@@ -1,2 +1,4 @@
 private_dot_config/zsh/private_dot_zsh_history
+private_dot_config/zsh/dot_zcompdump*
+private_dot_config/zsh/readonly_dot_zcompdump*
 private_dot_config/nvim/lazy-lock.json
