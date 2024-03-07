@@ -14,6 +14,11 @@ return {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame_opts = {
+        delay = 0,
+      },
+      current_line_blame = true,
+      current_line_blame_formatter = "<abbrev_sha>: <author>, <author_time> - <summary>",
     },
   },
 }
