@@ -26,6 +26,7 @@ in {
 
     # Tools
     restic # Backup tool
+    copyq
     lf # File manager
     chafa # For Sixel pictures in terminal
     exiftool # For image meta preview.
