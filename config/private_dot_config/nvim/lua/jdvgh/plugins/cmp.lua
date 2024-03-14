@@ -15,6 +15,7 @@ return {
           end
           return 'make install_jsregexp'
         end)(),
+        dependencies = { "rafamadriz/friendly-snippets" },
       },
       'saadparwaiz1/cmp_luasnip',
 
@@ -35,6 +36,8 @@ return {
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
+
+      require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup {
         snippet = {
