@@ -66,7 +66,8 @@ return {
                     --  For example, in C this would take you to the header
                     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-                    map("<leader>f", vim.lsp.buf.format, "[F]ormat")
+                    -- map("<leader>f", vim.lsp.buf.format, "[F]ormat")
+                    -- handled by conform.nvim
 
                     -- The following two autocommands are used to highlight references of the
                     -- word under your cursor when your cursor rests there for a little while.
@@ -116,9 +117,23 @@ return {
                 -- But for many setups, the LSP (`tsserver`) will work just fine
                 -- tsserver = {},
                 --
+                --diagnostics.shellcheck.with({ filetypes = { "sh", "zsh" } }),
+                bashls = {
+                     filetypes = { "sh", "zsh"},
+                },
+                shellcheck = {
+                     filetypes = { "sh", "zsh"},
+                },
+                -- shellharden = {},
+                shfmt = {
+                     filetypes = { "sh", "zsh"},
+                },
                 gopls = {},
                 jsonls = {},
-                terraformls = {},
+                terraformls = {
+                    cmd = { "terraform-ls", "serve"},
+                    filetypes = { "terraform"},
+                },
                 tflint = {},
                 tfsec = {},
                 tsserver = {},
@@ -163,6 +178,7 @@ return {
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
                 'stylua', -- Used to format lua code
+                'shfmt',
             })
             require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
