@@ -119,20 +119,21 @@ return {
                 --
                 --diagnostics.shellcheck.with({ filetypes = { "sh", "zsh" } }),
                 bashls = {
-                     filetypes = { "sh", "zsh"},
+                    filetypes = { "sh", "zsh" },
                 },
                 shellcheck = {
-                     filetypes = { "sh", "zsh"},
+                    filetypes = { "sh", "zsh" },
                 },
                 -- shellharden = {},
                 shfmt = {
-                     filetypes = { "sh", "zsh"},
+                    filetypes = { "sh", "zsh" },
                 },
                 gopls = {},
+                golangci_lint_ls = {},
                 jsonls = {},
                 terraformls = {
-                    cmd = { "terraform-ls", "serve"},
-                    filetypes = { "terraform"},
+                    cmd = { "terraform-ls", "serve" },
+                    filetypes = { "terraform" },
                 },
                 tflint = {},
                 tfsec = {},
@@ -179,6 +180,8 @@ return {
             vim.list_extend(ensure_installed, {
                 'stylua', -- Used to format lua code
                 'shfmt',
+                'goimports-reviser',
+                'golangci-lint'
             })
             require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
