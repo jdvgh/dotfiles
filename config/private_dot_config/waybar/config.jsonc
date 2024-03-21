@@ -30,12 +30,12 @@
     "hyprland/workspaces": {
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": " ",
-            "2": "",
-            "3": " ",
-            "8": "",
-            "9": "󰨞",
-            "0": " ",
+            // "1": " ",
+            // "2": "",
+            // "3": " ",
+            // "8": "",
+            // "9": "󰨞",
+            // "0": " ",
             "active": "",
             "default": ""
         }
@@ -100,11 +100,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% CPU",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% RAM"
     },
     "temperature": {
         // "thermal-zone": 2,
