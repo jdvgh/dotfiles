@@ -16,6 +16,13 @@ in {
     git
     git-lfs
     tig
+    xorg.libxcvt
+    hyprpicker
+    rofimoji
+    rbw
+    rofi-rbw
+    wtype
+    hyprkeys
 
     gnome.zenity # For dialogs over githooks.
 
@@ -35,7 +42,6 @@ in {
     poppler_utils # For image conversions.
     ffmpegthumbnailer # For video thumbnails.
     trash-cli
-    etcher
     gparted
     gnome.gnome-disk-utility
 
@@ -59,6 +65,7 @@ in {
     yq-go
     yarn
     just
+    shellharden
 
     # FHS Environment with nix-alien
     inputs.nixAlien.packages.${pkgs.system}.nix-alien
@@ -78,11 +85,11 @@ in {
     gopls
     golangci-lint-langserver
     texlab
-    rnix-lsp
     marksman
     lua-language-server
     yaml-language-server
     yamllint
+
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.bash-language-server
     nodePackages.vscode-json-languageserver
@@ -168,6 +175,7 @@ in {
     firefox
     spotify
     google-chrome
+    openvpn
 
     # Dictionaries
     aspell

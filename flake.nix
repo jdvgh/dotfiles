@@ -60,6 +60,7 @@
     nixpkgs,
     hyprland,
     home-manager,
+    nixpkgsStable,
     ...
   } @ inputs: let
     inherit (self) outputs;
