@@ -1,0 +1,6 @@
+version: '3'
+
+includes:
+  work:
+    taskfile: ~/dev/task/work/Taskfile.yaml
+    dir: '{{.USER_WORKING_DIR}}'
