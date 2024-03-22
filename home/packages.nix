@@ -21,6 +21,7 @@ in {
     rofimoji
     rbw
     rofi-rbw
+    fuzzel
     wtype
     hyprkeys
 
