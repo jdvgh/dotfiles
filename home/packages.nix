@@ -67,6 +67,8 @@ in {
     yarn
     just
     shellharden
+    corepack_20
+    anki
 
     # FHS Environment with nix-alien
     inputs.nixAlien.packages.${pkgs.system}.nix-alien
