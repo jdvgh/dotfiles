@@ -13,6 +13,10 @@
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
+    extraHosts =
+    ''
+    127.0.0.1 fake-gcs-server
+    '';
     # interfaces.enp4s0.useDHCP = true;
     # interfaces.wlp3s0.useDHCP = true;
 
