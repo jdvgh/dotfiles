@@ -1,10 +1,5 @@
-{
-  lib,
-  pkgs,
-  pkgsStable,
-  inputs,
-  ...
-}: let
+{ lib, pkgs, pkgsStable, inputs, ... }:
+let
   # Define some special packages.
 
 in {
@@ -52,7 +47,8 @@ in {
     delve
     earthly
     evans
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    (google-cloud-sdk.withExtraComponents
+      [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     hcloud
     chezmoi
     terraform

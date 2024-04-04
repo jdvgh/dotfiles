@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  pkgsStable,
-  ...
-}: {
+{ config, pkgs, pkgsStable, ... }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -52,14 +47,13 @@
     gnome.gnome-control-center
     gnome.gnome-tweaks
 
-
     btop
     dig
     dracula-theme
     font-manager
     gnome.gdm
     gnome.gnome-session
-    gnome3.adwaita-icon-theme  # default gnome cursors
+    gnome3.adwaita-icon-theme # default gnome cursors
     gnumake
     grim # screenshot functionality
     grimblast

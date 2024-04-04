@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   networking = {
     ### Networking ==============================================================
     hostName = "linux-nixos"; # Define your hostname.
@@ -13,9 +9,8 @@
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
-    extraHosts =
-    ''
-    127.0.0.1 fake-gcs-server
+    extraHosts = ''
+      127.0.0.1 fake-gcs-server
     '';
     # interfaces.enp4s0.useDHCP = true;
     # interfaces.wlp3s0.useDHCP = true;
@@ -29,7 +24,7 @@
     # Open ports in the firewall.
     firewall = {
       enable = true;
-      allowedTCPPorts = [433];
+      allowedTCPPorts = [ 433 ];
       # allowedUDPPorts = [ ... ];
     };
     # ===========================================================================

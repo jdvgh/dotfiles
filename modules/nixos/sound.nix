@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config, pkgs, lib, ... }: {
   ### Sound Settings ==========================================================
   sound.enable = false; # Only meant for ALSA-based configurations.
 
@@ -12,9 +7,7 @@
   # Disable Pulseaudio because Pipewire is used.
   hardware.pulseaudio.enable = lib.mkForce false;
 
-  environment.systemPackages = with pkgs; [
-    pavucontrol
-  ];
+  environment.systemPackages = with pkgs; [ pavucontrol ];
 
   services.pipewire = {
     enable = true;
@@ -43,8 +36,10 @@
     '';
 
     # Optional:
-    network.listenAddress = "any"; # if you want to allow non-localhost connections
-    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    network.listenAddress =
+      "any"; # if you want to allow non-localhost connections
+    startWhenNeeded =
+      true; # systemd feature: only start MPD service upon connection to its socket
   };
   # ===========================================================================
 }

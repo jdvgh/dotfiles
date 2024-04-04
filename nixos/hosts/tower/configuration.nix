@@ -1,19 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  inputs,
-  outputs,
-  settings,
-  ...
-}: let
+{ config, pkgs, inputs, outputs, settings, ... }:
+let
   pkgsStable = import inputs.nixpkgsStable {
     system = pkgs.system;
-    config = {
-      allowUnfree = true;
-    };
+    config = { allowUnfree = true; };
   };
 in {
   imports = [
@@ -31,7 +23,7 @@ in {
     ./hardware.nix
 
     # Include all other specifications.
-    (outputs.nixosModules.windowing {inherit inputs config pkgs pkgsStable;})
+    (outputs.nixosModules.windowing { inherit inputs config pkgs pkgsStable; })
     outputs.nixosModules.display
     outputs.nixosModules.fonts
     outputs.nixosModules.time
@@ -46,7 +38,7 @@ in {
 
     outputs.nixosModules.virtualization
 
-    (outputs.nixosModules.packages {inherit config pkgs pkgsStable;})
+    (outputs.nixosModules.packages { inherit config pkgs pkgsStable; })
     outputs.nixosModules.programs
 
     outputs.nixosModules.user
@@ -55,7 +47,9 @@ in {
 
     # Load home-manager as a part of the NixOS configuration.
     inputs.home-manager.nixosModules.home-manager
-    (outputs.nixosModules.home-manager {inherit config inputs outputs pkgsStable;})
+    (outputs.nixosModules.home-manager {
+      inherit config inputs outputs pkgsStable;
+    })
   ];
 
   nixpkgs = {

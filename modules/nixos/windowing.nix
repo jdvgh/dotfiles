@@ -1,10 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  pkgsStable,
-  ...
-}: {
+{ inputs, config, pkgs, pkgsStable, ... }: {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.xkb.layout = "eu";
@@ -22,18 +16,15 @@
     autoLogin.user = "nixos";
     defaultSession = "gnome";
   };
-  services.xserver.desktopManager = {
-    gnome.enable = true;
-  };
+  services.xserver.desktopManager = { gnome.enable = true; };
   # ===========================================================================
 
-
   # Hyprland Window Manager ===================================================
-    programs.hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        xwayland.enable = true; # Bridge to Wayland API for X11 apps.
-    };
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    xwayland.enable = true; # Bridge to Wayland API for X11 apps.
+  };
   # # Sessions variables
   # environment.sessionVariables = {
   #   # Clutter based apps.
@@ -61,6 +52,6 @@
     cantarell-fonts
     noto-fonts
     noto-fonts-emoji
-    (nerdfonts.override {fonts = ["Noto" "JetBrainsMono"];})
+    (nerdfonts.override { fonts = [ "Noto" "JetBrainsMono" ]; })
   ];
 }

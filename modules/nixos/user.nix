@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   ### User Settings ==========================================================
   users = {
     users.${config.settings.user.name} = {

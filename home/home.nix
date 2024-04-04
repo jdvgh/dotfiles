@@ -1,16 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 # Search for all options using: https://mipmip.github.io/home-manager-option-search
-{
-  config,
-  lib,
-  pkgs,
-  pkgsStable,
-  osConfig,
-  inputs,
-  outputs,
-  ...
-}: {
+{ config, lib, pkgs, pkgsStable, osConfig, inputs, outputs, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -37,7 +28,7 @@
     homeDirectory = "/home/${osConfig.settings.user.name}";
 
     # Add support for .local/bin
-    sessionPath = ["${homeDirectory}/.local/bin"];
+    sessionPath = [ "${homeDirectory}/.local/bin" ];
   };
 
   # Enable home-manager and git
@@ -52,7 +43,6 @@
   #   ref = "main";
   #   workspace = "private";
   # };
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";

@@ -1,11 +1,6 @@
-{
-  lib,
-  pkgs,
-  pkgsStab,
-  inputs,
-  ...
-}: let
-  browser = ["google-chrome.desktop"];
+{ lib, pkgs, pkgsStab, inputs, ... }:
+let
+  browser = [ "google-chrome.desktop" ];
 
   associations = {
     "text/html" = browser;
@@ -25,12 +20,12 @@
     "application/x-extension-xht" = browser;
 
     "image/*" = "nomacs.desktop";
-    "audio/*" = ["vlc.desktop"];
-    "video/*" = ["vlc.desktop"];
-
+    "audio/*" = [ "vlc.desktop" ];
+    "video/*" = [ "vlc.desktop" ];
 
     "application/json" = browser; # ".json"  JSON format
-    "application/pdf" = browser ++ ["com.github.jeromerobert.pdfarranger.desktop"];
+    "application/pdf" = browser
+      ++ [ "com.github.jeromerobert.pdfarranger.desktop" ];
   };
 in {
   # Enable all XDG directories.

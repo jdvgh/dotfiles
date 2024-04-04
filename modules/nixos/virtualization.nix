@@ -1,13 +1,9 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   ### Virtualisation ==========================================================
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
   # boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "sr_mod" "virtio_blk" ];
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = [ "kvm-amd" ];
 
   virtualisation.libvirtd = {
     enable = true;
