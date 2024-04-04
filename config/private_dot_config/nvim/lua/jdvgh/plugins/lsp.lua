@@ -131,12 +131,19 @@ return {
                 gopls = {},
                 golangci_lint_ls = {},
                 jsonls = {},
+                nil_ls = {
+                    filetypes = { "nix" },
+                },
                 terraformls = {
                     cmd = { "terraform-ls", "serve" },
-                    filetypes = { "terraform" },
+                    filetypes = { "terraform", "tf" },
                 },
-                tflint = {},
-                tfsec = {},
+                tflint = {
+                    filetypes = { "terraform", "tf" },
+                },
+                tfsec = {
+                    filetypes = { "terraform", "tf" },
+                },
                 tsserver = {},
                 rust_analyzer = {},
                 lua_ls = {
@@ -181,7 +188,7 @@ return {
                 'stylua', -- Used to format lua code
                 'shfmt',
                 'goimports-reviser',
-                'golangci-lint'
+                'golangci-lint',
             })
             require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

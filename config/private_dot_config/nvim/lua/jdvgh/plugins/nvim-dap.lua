@@ -12,7 +12,7 @@ return {
     -- NOTE: And you can specify dependencies as well
     dependencies = {
         -- Creates a beautiful debugger UI
-        'rcarriga/nvim-dap-ui',
+        { 'rcarriga/nvim-dap-ui', dependencies = { "nvim-neotest/nvim-nio" } },
 
         -- Installs the debug adapters for you
         'williamboman/mason.nvim',
@@ -85,7 +85,7 @@ return {
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
         neodev.setup({
-          library = { plugins = { "nvim-dap-ui" }, types = true }
+            library = { plugins = { "nvim-dap-ui" }, types = true }
         })
 
         -- Install golang specific config
