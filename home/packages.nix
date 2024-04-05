@@ -21,6 +21,7 @@ in {
     hyprkeys
 
     gnome.zenity # For dialogs over githooks.
+    graphviz
 
     gnome.seahorse
 
