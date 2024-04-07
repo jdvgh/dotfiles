@@ -39,7 +39,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = { url = "github:hyprwm/Hyprland"; };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -50,7 +52,14 @@
   };
 
   outputs =
-    { self, nixpkgs, hyprland, home-manager, nixpkgsStable, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      hyprland,
+      home-manager,
+      nixpkgsStable,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
 
@@ -59,11 +68,11 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
+    in
+    {
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs

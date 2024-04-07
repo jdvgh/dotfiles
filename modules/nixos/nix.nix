@@ -1,4 +1,12 @@
-{ config, pkgs, inputs, outputs, lib, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  ...
+}:
+{
   ### Nix Specific Settings ===================================================
   nix = {
     # This will add each flake input as a registry
@@ -7,8 +15,7 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
-      config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
       # Enable flakes and new 'nix' command
@@ -16,9 +23,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
       substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
 
       # Add your own username to the trusted list
       trusted-users = [ "jonase" ];
@@ -35,7 +40,10 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [ "electron-12.2.3" "electron-19.1.9" ];
+      permittedInsecurePackages = [
+        "electron-12.2.3"
+        "electron-19.1.9"
+      ];
     };
   };
   # ===========================================================================

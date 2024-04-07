@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   networking = {
     ### Networking ==============================================================
     hostName = "linux-nixos"; # Define your hostname.

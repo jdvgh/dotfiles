@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   # Enable bluetooth
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth

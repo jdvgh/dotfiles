@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   ### Color Shifting ==========================================================
   services.gammastep = {
     enable = true;

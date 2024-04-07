@@ -1,4 +1,10 @@
-{ lib, pkgs, pkgsStab, inputs, ... }:
+{
+  lib,
+  pkgs,
+  pkgsStab,
+  inputs,
+  ...
+}:
 let
   browser = [ "google-chrome.desktop" ];
 
@@ -24,10 +30,10 @@ let
     "video/*" = [ "vlc.desktop" ];
 
     "application/json" = browser; # ".json"  JSON format
-    "application/pdf" = browser
-      ++ [ "com.github.jeromerobert.pdfarranger.desktop" ];
+    "application/pdf" = browser ++ [ "com.github.jeromerobert.pdfarranger.desktop" ];
   };
-in {
+in
+{
   # Enable all XDG directories.
   xdg.enable = true;
 

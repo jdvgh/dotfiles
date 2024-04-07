@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   ### Sound Settings ==========================================================
   sound.enable = false; # Only meant for ALSA-based configurations.
 
@@ -36,10 +42,8 @@
     '';
 
     # Optional:
-    network.listenAddress =
-      "any"; # if you want to allow non-localhost connections
-    startWhenNeeded =
-      true; # systemd feature: only start MPD service upon connection to its socket
+    network.listenAddress = "any"; # if you want to allow non-localhost connections
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
   };
   # ===========================================================================
 }

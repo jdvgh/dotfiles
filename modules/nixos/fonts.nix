@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   ### Fonts ================================================================
   fonts = {
     fontconfig = {
@@ -21,7 +22,12 @@
       noto-fonts-emoji
       google-fonts
       (nerdfonts.override {
-        fonts = [ "FiraCode" "Noto" "JetBrainsMono" "SourceCodePro" ];
+        fonts = [
+          "FiraCode"
+          "Noto"
+          "JetBrainsMono"
+          "SourceCodePro"
+        ];
       })
     ];
   };

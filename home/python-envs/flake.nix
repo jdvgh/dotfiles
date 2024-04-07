@@ -25,7 +25,13 @@
     # Also see the 'stable-packages' overlay at 'overlays/default.nix'.
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
 
@@ -42,17 +48,18 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       python-envs-inline-mod = pkgs: {
-        python-envs = { default = pkgs.callPackage ./default/default.nix { }; };
+        python-envs = {
+          default = pkgs.callPackage ./default/default.nix { };
+        };
       };
-    in {
+    in
+    {
       # Your custom packages
       # Accessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems
-        (system: (python-envs-inline-mod nixpkgs.legacyPackages.${system}));
+      packages = forAllSystems (system: (python-envs-inline-mod nixpkgs.legacyPackages.${system}));
 
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
     };
 }

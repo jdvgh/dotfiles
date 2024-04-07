@@ -1,4 +1,11 @@
-{ inputs, config, pkgs, pkgsStable, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  pkgsStable,
+  ...
+}:
+{
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.xkb.layout = "eu";
@@ -16,7 +23,9 @@
     autoLogin.user = "nixos";
     defaultSession = "gnome";
   };
-  services.xserver.desktopManager = { gnome.enable = true; };
+  services.xserver.desktopManager = {
+    gnome.enable = true;
+  };
   # ===========================================================================
 
   # Hyprland Window Manager ===================================================
@@ -52,6 +61,11 @@
     cantarell-fonts
     noto-fonts
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "Noto" "JetBrainsMono" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "Noto"
+        "JetBrainsMono"
+      ];
+    })
   ];
 }

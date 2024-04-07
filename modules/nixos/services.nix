@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   ### Services ================================================================
   services = {
     dbus.enable = true;
@@ -21,7 +22,9 @@
     # Enable the OpenSSH daemon.
     openssh = {
       enable = true;
-      settings = { PasswordAuthentication = true; };
+      settings = {
+        PasswordAuthentication = true;
+      };
     };
   };
   # ===========================================================================

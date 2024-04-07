@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   security = {
     rtkit.enable = true;
 
@@ -12,6 +13,10 @@
 
   services = {
     dbus.apparmor = "enabled";
-    openssh = { settings = { PermitRootLogin = "no"; }; };
+    openssh = {
+      settings = {
+        PermitRootLogin = "no";
+      };
+    };
   };
 }

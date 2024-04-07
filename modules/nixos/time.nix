@@ -1,1 +1,6 @@
-{ config, pkgs, ... }: { time = { timeZone = "Europe/Berlin"; }; }
+{ config, pkgs, ... }:
+{
+  time = {
+    timeZone = "Europe/Berlin";
+  };
+}

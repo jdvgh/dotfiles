@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  services.xserver.videoDrivers = [ "intel" "amdgpu" ];
+{ config, pkgs, ... }:
+{
+  services.xserver.videoDrivers = [
+    "intel"
+    "amdgpu"
+  ];
   #   services.xserver.monitorSection = ''
   # Modeline "3440x1440_60.00"  419.50  3440 3696 4064 4688  1440 1443 1453 1493 -hsync +vsync
   # Modeline "1904x1200_60.00"  191.00  1904 2032 2232 2560  1200 1203 1213 1245 -hsync +vsync
@@ -10,8 +14,7 @@
   # '';
   # Refer to https://nixos.wiki/wiki/Accelerated_Video_Playback
   nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver =
-      pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
   hardware.opengl = {
     enable = true;
@@ -30,9 +33,10 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "i915";
   }; # Force intel-vaapi-driver
-  environment.variables = { ROC_ENABLE_PRE_VEGA = "1"; };
-  systemd.tmpfiles.rules =
-    [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+  environment.variables = {
+    ROC_ENABLE_PRE_VEGA = "1";
+  };
+  systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
   #services.blueman.enable = true;
 }
