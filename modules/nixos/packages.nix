@@ -1,4 +1,10 @@
-{ config, pkgs, pkgsStable, ... }: {
+{
+  config,
+  pkgs,
+  pkgsStable,
+  ...
+}:
+{
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -98,6 +104,8 @@
     kubectl
     k9s # Kubernetes management CLI tool
     kubernetes-helm
+    nextcloud-client
+    libreoffice
 
     # Other virtualisation stuff.
     # libguestfs # Needed to virt-sparsify qcow2 files
