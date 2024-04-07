@@ -1,8 +1,14 @@
-{ lib, pkgs, pkgsStable, inputs, ... }:
+{
+  lib,
+  pkgs,
+  pkgsStable,
+  inputs,
+  ...
+}:
 let
-  # Define some special packages.
-
-in {
+in
+# Define some special packages.
+{
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   home.packages = with pkgs; [
@@ -48,8 +54,7 @@ in {
     delve
     earthly
     evans
-    (google-cloud-sdk.withExtraComponents
-      [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+    (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     hcloud
     chezmoi
     terraform
@@ -146,7 +151,7 @@ in {
     nixpkgs-lint
     stdenv.cc
     alejandra
-    nixfmt
+    nixfmt-rfc-style
 
     ## Lua
     stylua
