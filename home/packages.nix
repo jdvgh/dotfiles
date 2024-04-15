@@ -58,6 +58,7 @@ in
     hcloud
     chezmoi
     terraform
+    packer
     luajit
     lazygit
     delta
