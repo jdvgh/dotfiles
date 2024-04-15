@@ -1,0 +1,17 @@
+[user]
+    name = Eilers, Jonas
+    email = "133217951+jdvgh@users.noreply.github.com"
+[commit]
+    gpgSign = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[include]
+{{- if eq .chezmoi.hostname "nixos-desktop" }}
+    path = ~/.gitconfig-home-desktop
+{{- end }}
+{{- if eq .chezmoi.hostname "nixos-tower" }}
+    path = ~/.gitconfig-home-tower
+{{- end }}
