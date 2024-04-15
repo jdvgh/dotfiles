@@ -17,6 +17,12 @@ return {
         end)(),
         dependencies = { "rafamadriz/friendly-snippets" },
       },
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end
+      },
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds other completion capabilities.
@@ -87,6 +93,8 @@ return {
           end, { 'i', 's' }),
         },
         sources = {
+          -- Copilot Source
+          { name = "copilot" },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
