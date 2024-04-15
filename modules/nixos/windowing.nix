@@ -13,15 +13,17 @@
   services.xserver.autorun = true;
 
   # Display Manager ===========================================================
-  services.xserver.displayManager = {
+  services.displayManager = {
     sddm.enable = false;
+    autoLogin.enable = true;
+    autoLogin.user = "jonase";
+    defaultSession = "hyprland";
+  };
+  services.xserver.displayManager = {
     gdm = {
       enable = true;
       wayland = true;
     };
-    autoLogin.enable = true;
-    autoLogin.user = "nixos";
-    defaultSession = "gnome";
   };
   services.xserver.desktopManager = {
     gnome.enable = true;
