@@ -32,6 +32,7 @@ in
     ./hardware-configuration.nix
     ./boot.nix
     ./hardware.nix
+    ./networking.nix
 
     # Include all other specifications.
     (outputs.nixosModules.windowing {
