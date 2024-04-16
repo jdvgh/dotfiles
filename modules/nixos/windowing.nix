@@ -15,7 +15,7 @@
   # Display Manager ===========================================================
   services.displayManager = {
     sddm.enable = false;
-    autoLogin.enable = true;
+    autoLogin.enable = false;
     autoLogin.user = "jonase";
     defaultSession = "hyprland";
   };

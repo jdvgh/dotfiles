@@ -98,6 +98,7 @@
     lazygit
     # Virtualisation
     docker
+    kind
     docker-compose
     krew
     kubecm
