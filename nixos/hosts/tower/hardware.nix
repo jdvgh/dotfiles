@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   services.xserver.videoDrivers = [
-    "intel"
+    # "intel"
     "amdgpu"
   ];
   #   services.xserver.monitorSection = ''
@@ -13,14 +13,14 @@
   # Option "ModeValidation" "AllowNonEdidModes"
   # '';
   # Refer to https://nixos.wiki/wiki/Accelerated_Video_Playback
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  # };
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       # intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      # intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       vaapiVdpau
       libvdpau-va-gl
       rocmPackages.clr.icd
@@ -30,9 +30,9 @@
   };
   # environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "i915";
-  }; # Force intel-vaapi-driver
+  # environment.sessionVariables = {
+  #   LIBVA_DRIVER_NAME = "i915";
+  # }; # Force intel-vaapi-driver
   environment.variables = {
     ROC_ENABLE_PRE_VEGA = "1";
   };

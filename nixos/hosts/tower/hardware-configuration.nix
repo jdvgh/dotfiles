@@ -21,7 +21,7 @@
     "sr_mod"
   ];
   boot.initrd.kernelModules = [
-    "i915"
+    # "i915"
     "amdgpu"
   ];
   boot.kernelModules = [ "kvm-intel" ];
