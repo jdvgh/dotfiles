@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.hostname "nixos-desktop" }}
+env = WLM_DRM_DEVICES,/dev/dri/card0
+env = WLR_NO_HARDWARE_CURSORS,1
+env = GBM_BACKEND,nvidia-drm
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+{{- end }}
+{{- if eq .chezmoi.hostname "nixos-tower" }}
+env = WLM_DRM_DEVICES,$HOME/.config/hypr/card
+{{- end }}
