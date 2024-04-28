@@ -38,7 +38,7 @@
     homeDirectory = "/home/${osConfig.settings.user.name}";
 
     # Add support for .local/bin
-    sessionPath = [ "${homeDirectory}/.local/bin" ];
+    sessionPath = [ "${homeDirectory}/.local/bin" "${homeDirectory}/.cargo/bin" ];
   };
 
   # Enable home-manager and git

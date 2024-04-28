@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     # Basic
     mkpasswd
+    swaylock
 
     gnutar
     unzip
