@@ -121,6 +121,12 @@ return {
                 bashls = {
                     filetypes = { "sh", "zsh" },
                 },
+                dockerls = {},
+                docker_compose_language_service = {},
+                earthlyls = {
+                    -- filetypes = { "Earthfile", "earthfile" },
+                    -- cmd = { "earthlyls" },
+                },
                 shellcheck = {
                     filetypes = { "sh", "zsh" },
                 },

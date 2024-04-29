@@ -21,3 +21,12 @@ vim.api.nvim_create_autocmd(
     desc = 'Automatically resize windows when the host window size changes.'
   }
 )
+vim.api.nvim_create_autocmd(
+  { 'BufEnter', 'BufNewFile' },
+  {
+    group = vim.api.nvim_create_augroup('jdvgh-filetypes', { clear = true }),
+    pattern = '*.gotmpl',
+    command = 'set filetype=gotmpl',
+    desc = 'Automatically set filetype to gotmpl for files ending in .gotmpl'
+  }
+)
