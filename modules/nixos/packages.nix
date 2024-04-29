@@ -49,6 +49,7 @@
     curl
 
     neovim
+    gotemplate
 
     dmenu
     gnome.gnome-control-center

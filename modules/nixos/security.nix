@@ -9,6 +9,7 @@
     };
 
     pam.services.login.enableGnomeKeyring = true;
+    pam.services.swaylock = {};
   };
 
   services = {
