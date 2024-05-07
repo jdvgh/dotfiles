@@ -12,6 +12,7 @@
     useDHCP = false;
     extraHosts = ''
       127.0.0.1 fake-gcs-server
+      34.144.215.247 kuberpult-otop-ref-d2-euw4.d.dscore.com
     '';
     # interfaces.enp4s0.useDHCP = true;
     # interfaces.wlp3s0.useDHCP = true;

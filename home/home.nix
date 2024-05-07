@@ -29,8 +29,6 @@
     ./services.nix
     ./xdg.nix
     # outputs.homeManagerModules.chezmoi
-
-    inputs.nix-index-database.hmModules.nix-index
   ];
 
   home = rec {
@@ -55,5 +53,5 @@
   # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }

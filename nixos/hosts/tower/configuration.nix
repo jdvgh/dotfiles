@@ -9,14 +9,6 @@
   settings,
   ...
 }:
-let
-  pkgsStable = import inputs.nixpkgsStable {
-    system = pkgs.system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -39,7 +31,6 @@ in
         inputs
         config
         pkgs
-        pkgsStable
         ;
     })
     outputs.nixosModules.display
@@ -56,7 +47,7 @@ in
 
     outputs.nixosModules.virtualization
 
-    (outputs.nixosModules.packages { inherit config pkgs pkgsStable; })
+    (outputs.nixosModules.packages { inherit config pkgs; })
     outputs.nixosModules.programs
 
     outputs.nixosModules.user
@@ -70,7 +61,6 @@ in
         config
         inputs
         outputs
-        pkgsStable
         ;
     })
   ];
@@ -97,6 +87,6 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
   # ===========================================================================
 }

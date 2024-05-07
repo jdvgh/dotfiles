@@ -9,14 +9,6 @@
   settings,
   ...
 }:
-let
-  pkgsStable = import inputs.nixpkgsStable {
-    system = pkgs.system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):

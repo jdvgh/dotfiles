@@ -73,9 +73,6 @@ in
     corepack_20
     anki
 
-    # FHS Environment with nix-alien
-    inputs.nixAlien.packages.${pkgs.system}.nix-alien
-
     # Linters
     markdownlint-cli
     yamllint

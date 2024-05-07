@@ -11,12 +11,6 @@
 let
   modules = inputs.self + /nixos/modules;
 
-  pkgsStable = import inputs.nixpkgsStable {
-    system = pkgs.system;
-    config = {
-      allowUnfree = true;
-    };
-  };
 in
 {
   imports = [
@@ -30,7 +24,6 @@ in
         inputs
         config
         pkgs
-        pkgsStable
         ;
     })
     outputs.nixosModules.display
@@ -47,7 +40,7 @@ in
 
     outputs.nixosModules.virtualization
 
-    (outputs.nixosModules.packages { inherit config pkgs pkgsStable; })
+    (outputs.nixosModules.packages { inherit config pkgs; })
     outputs.nixosModules.programs
 
     (outputs.nixosModules.user { inherit config pkgs; })

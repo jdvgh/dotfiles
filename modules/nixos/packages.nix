@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgsStable,
   ...
 }:
 {
@@ -100,6 +99,7 @@
     lazygit
     # Virtualisation
     docker
+    ncdu
     kind
     docker-compose
     krew
