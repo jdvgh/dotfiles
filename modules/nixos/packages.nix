@@ -57,7 +57,6 @@
     btop
     dig
     dracula-theme
-    font-manager
     gnome.gdm
     gnome.gnome-session
     gnome3.adwaita-icon-theme # default gnome cursors

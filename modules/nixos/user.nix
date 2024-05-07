@@ -3,7 +3,6 @@
   ### User Settings ==========================================================
   users = {
     users.${config.settings.user.name} = {
-      uid = 1000;
       shell = pkgs.zsh;
 
       useDefaultShell = false;
