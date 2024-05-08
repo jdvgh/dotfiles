@@ -1,83 +1,83 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# # Initialization code that may require console input (password prompts, [y/n]
+# # confirmations, etc.) must go above this block; everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+#
+# # If you come from bash you might have to change your $PATH.
+# # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#
+# # Path to your oh-my-zsh installation.
+# export ZSH="$HOME/.oh-my-zsh"
+#
+# # Set name of the theme to load --- if set to "random", it will
+# # load a random theme each time oh-my-zsh is loaded, in which case,
+# # to know which specific one was loaded, run: echo $RANDOM_THEME
+# # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+#
+# # Set list of themes to pick from when loading at random
+# # Setting this variable when ZSH_THEME=random will cause zsh to load
+# # a theme from this variable instead of looking in $ZSH/themes/
+# # If set to an empty array, this variable will have no effect.
+# # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+#
+# # Uncomment the following line to use case-sensitive completion.
+# # CASE_SENSITIVE="true"
+#
+# # Uncomment the following line to use hyphen-insensitive completion.
+# # Case-sensitive completion must be off. _ and - will be interchangeable.
+# # HYPHEN_INSENSITIVE="true"
+#
+# # Uncomment one of the following lines to change the auto-update behavior
+# # zstyle ':omz:update' mode disabled  # disable automatic updates
+# # zstyle ':omz:update' mode auto      # update automatically without asking
+# # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+#
+# # Uncomment the following line to change how often to auto-update (in days).
+# # zstyle ':omz:update' frequency 13
+#
+# # Uncomment the following line if pasting URLs and other text is messed up.
+# # DISABLE_MAGIC_FUNCTIONS="true"
+#
+# # Uncomment the following line to disable colors in ls.
+# # DISABLE_LS_COLORS="true"
+#
+# # Uncomment the following line to disable auto-setting terminal title.
+# # DISABLE_AUTO_TITLE="true"
+#
+# # Uncomment the following line to enable command auto-correction.
+# # ENABLE_CORRECTION="true"
+#
+# # Uncomment the following line to display red dots whilst waiting for completion.
+# # You can also set it to another string to have that shown instead of the default red dots.
+# # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# # COMPLETION_WAITING_DOTS="true"
+#
+# # Uncomment the following line if you want to disable marking untracked files
+# # under VCS as dirty. This makes repository status check for large repositories
+# # much, much faster.
+# # DISABLE_UNTRACKED_FILES_DIRTY="true"
+#
+# # Uncomment the following line if you want to change the command execution time
+# # stamp shown in the history command output.
+# # You can set one of the optional three formats:
+# # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# # or set a custom format using the strftime function format specifications,
+# # see 'man strftime' for details.
+# # HIST_STAMPS="mm/dd/yyyy"
+#
+# # Would you like to use another custom folder than $ZSH/custom?
+# # ZSH_CUSTOM=/path/to/new-custom-folder
+#
+# # Which plugins would you like to load?
+# # Standard plugins can be found in $ZSH/plugins/
+# # Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# # Example format: plugins=(rails git textmate ruby lighthouse)
+# # Add wisely, as too many plugins slow down shell startup.
+# plugins=(git)
 
 ### gabyx start
 # Runs only on interactive ZSH.
@@ -113,9 +113,108 @@ setopt AUTO_PUSHD                # Push the current directory visited on the sta
 setopt PUSHD_IGNORE_DUPS         # Do not store duplicates in the stack.
 setopt PUSHD_SILENT              # Do not print the directory stack after pushd or popd.
 
+# # Set default editors.
+export EDITOR="nvim"
+export VISUAL="nvim"
+#
+# Settings for plugins.
+local ZSH_AUTOSUGGEST_USE_ASYNC=true
+local ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
+# local ZVM_LAZY_KEYBINDINGS=true
+local ZVM_INIT_MODE=sourcing # Somehow zsh-vi-mode overwrites CTRL+R. https://github.com/jeffreytse/zsh-vi-mode/issues/242
+#
+#
+#
+#
+# # Installing plugins ===========================================================
+# # Setup antidote if not yet setup.
+ANTIDOTE_HOME=$ZDOTDIR/.antidote/.plugins
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+zstyle ':antidote:bundle' file "$ZDOTDIR/.zplugins"
+fpath+=("$ZDOTDIR/.antidote")
+autoload -Uz "$fpath[-1]/antidote"
+#
+function install_plugins() {
+    zstyle -s ':antidote:bundle' file zsh_plugins_src
+    local zsh_plugins="$ZDOTDIR/.zsh_plugins.zsh"
+
+    local force_bundle="false"
+    if [ "$1" = "--force" ]; then
+        force_bundle="true"
+    fi
+
+    # Ensure you have a plugins.txt file
+    # where you can add plugins.
+    [[ -f "$zsh_plugins_src" ]] || {
+        mkdir -p "$(dirname "$zsh_plugins_src")" &&
+        touch "$zsh_plugins_src"
+    }
+
+    # Generate static file in a subshell when
+    # source plugin list is updated.
+    if [[ "$zsh_plugins_src" -nt "$zsh_plugins" ]] ||
+        [ "$force_bundle" = "true" ]; then
+        echo "Generate static plugins file '$zsh_plugins' ..."
+        antidote bundle <"$zsh_plugins_src" >"$zsh_plugins"
+    fi
+}
+
+# Set the name of the static .zsh plugins file antidote will generate.
+if [ ! -d "$ZDOTDIR/.antidote" ]; then
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "$ZDOTDIR/.antidote"
+    install_plugins --force
+else
+   install_plugins
+fi
+
+# Loading plugins
+source "$ZDOTDIR/.zsh_plugins.zsh"
+# ==============================================================================
+
+# To see the key characters press `CTRL+V` and afterwards the combination in
+# a normal shell.
+# Del/Home/End
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char
+
+# Alt + Left/right, and Alt+h, Alt+l for word back and forward movement.
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+bindkey "^[l" forward-word
+bindkey "^[h" backward-word
+export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+
+# Keybindings for substring search plugin.
+# Maps up and down arrows and Alt+k, Alt+j
+bindkey -M main '^[[A' history-substring-search-up
+bindkey -M main '^[[B' history-substring-search-down
+bindkey -M main '^[k' history-substring-search-up
+bindkey -M main '^[j' history-substring-search-down
+
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Keybindings for autosuggestions plugin
+bindkey '^y' autosuggest-accept
+bindkey '^n' autosuggest-accept
+
+# Map CTRL+R to history, Ctrl+Alt+D to cd witchet and
+# Ctrl+Alt+K to the kill witched.
+autoload znt-history-widget
+zle -N znt-history-widget
+bindkey "^R" znt-history-widget
+zle -N znt-cd-widget
+bindkey "^[D" znt-cd-widget
+zle -N znt-kill-widget
+bindkey "^[K" znt-kill-widget
 ###gabyx end
 
-source $ZSH/oh-my-zsh.sh
+# echo source "${ZSH}/oh-my-zsh.sh"
+# source "${ZSH}/oh-my-zsh.sh"
 
 # User configuration
 
