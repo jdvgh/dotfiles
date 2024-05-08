@@ -25,6 +25,7 @@
     "amdgpu"
   ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "intel_pstate=active" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
