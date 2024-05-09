@@ -32,7 +32,6 @@
         inputs
         config
         pkgs
-        pkgsStable
         ;
     })
     outputs.nixosModules.display
@@ -49,7 +48,7 @@
 
     outputs.nixosModules.virtualization
 
-    (outputs.nixosModules.packages { inherit config pkgs pkgsStable; })
+    (outputs.nixosModules.packages { inherit config pkgs ; })
     outputs.nixosModules.programs
 
     outputs.nixosModules.user
@@ -63,7 +62,6 @@
         config
         inputs
         outputs
-        pkgsStable
         ;
     })
   ];
