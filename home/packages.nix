@@ -44,7 +44,6 @@ in
     poppler_utils # For image conversions.
     ffmpegthumbnailer # For video thumbnails.
     trash-cli
-    gparted
     gnome.gnome-disk-utility
 
     # Programming

@@ -12,6 +12,7 @@
     swaylock
 
     gnutar
+    gparted
     unzip
 
     binutils
