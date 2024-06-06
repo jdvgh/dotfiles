@@ -48,11 +48,14 @@ in
 
     # Programming
     (lib.hiPrio parallel)
+    sqlite
     bun
     delve
     earthly
     evans
     (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+    protoc-gen-go-grpc
+    protoc-gen-go
     hcloud
     chezmoi
     terraform
