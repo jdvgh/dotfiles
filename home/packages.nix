@@ -144,7 +144,6 @@ in
     ## Python
     python311
     python311Packages.pip
-    nodePackages.pyright
 
     ## Nix
     nixpkgs-lint
@@ -165,7 +164,7 @@ in
     bitwarden # Password manager
     bitwarden-cli
     signal-desktop # Messaging app
-    transmission-gtk
+    transmission_4-gtk
     ffmpeg # Movie converter
     vlc # Movie player
     inkscape # Vector graphics
@@ -178,6 +177,7 @@ in
     ymuse # Sound player
     firefox
     spotify
+    steam
     google-chrome
     openvpn
 
