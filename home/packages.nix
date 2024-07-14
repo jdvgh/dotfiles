@@ -25,10 +25,10 @@ in
     wtype
     hyprkeys
 
-    gnome.zenity # For dialogs over githooks.
+    zenity # For dialogs over githooks.
     graphviz
 
-    gnome.seahorse
+    seahorse
 
     alacritty
     neovim
@@ -44,7 +44,7 @@ in
     poppler_utils # For image conversions.
     ffmpegthumbnailer # For video thumbnails.
     trash-cli
-    gnome.gnome-disk-utility
+    gnome-disk-utility
 
     # Programming
     (lib.hiPrio parallel)

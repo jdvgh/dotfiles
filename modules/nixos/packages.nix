@@ -53,14 +53,14 @@
 
     dmenu
     gnome.gnome-control-center
-    gnome.gnome-tweaks
+    gnome-tweaks
 
     btop
     dig
     dracula-theme
     gnome.gdm
     gnome.gnome-session
-    gnome3.adwaita-icon-theme # default gnome cursors
+    adwaita-icon-theme # default gnome cursors
     gnumake
     grim # screenshot functionality
     grimblast
