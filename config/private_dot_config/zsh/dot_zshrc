@@ -88,30 +88,31 @@
 }
 
 # Load completion system
-autoload -U compinit; compinit
+autoload -U compinit
+compinit
 
 # Zsh options: http://zsh.sourceforge.net/Doc/Release/Options.html
 HISTFILE="$ZDOTDIR/.zsh_history"
-HISTSIZE=10000000                # How many lines of history to keep in memory
-SAVEHIST=10000000                # Number of history entries to save to disk
-setopt BANG_HIST                 # Treat the '!' character specially during expansion.
-setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
-setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
-setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
-setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
-setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
-setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
-setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+HISTSIZE=10000000             # How many lines of history to keep in memory
+SAVEHIST=10000000             # Number of history entries to save to disk
+setopt BANG_HIST              # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY          # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS       # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS   # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS      # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
+setopt HIST_BEEP              # Beep when accessing nonexistent history.
 
 # Directory stack.
-setopt AUTO_PUSHD                # Push the current directory visited on the stack.
-setopt PUSHD_IGNORE_DUPS         # Do not store duplicates in the stack.
-setopt PUSHD_SILENT              # Do not print the directory stack after pushd or popd.
+setopt AUTO_PUSHD        # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS # Do not store duplicates in the stack.
+setopt PUSHD_SILENT      # Do not print the directory stack after pushd or popd.
 
 # # Set default editors.
 export EDITOR="nvim"
@@ -147,7 +148,7 @@ function install_plugins() {
     # where you can add plugins.
     [[ -f "$zsh_plugins_src" ]] || {
         mkdir -p "$(dirname "$zsh_plugins_src")" &&
-        touch "$zsh_plugins_src"
+            touch "$zsh_plugins_src"
     }
 
     # Generate static file in a subshell when
@@ -164,7 +165,7 @@ if [ ! -d "$ZDOTDIR/.antidote" ]; then
     git clone --depth=1 https://github.com/mattmc3/antidote.git "$ZDOTDIR/.antidote"
     install_plugins --force
 else
-   install_plugins
+    install_plugins
 fi
 
 # Loading plugins
@@ -225,9 +226,9 @@ bindkey "^[K" znt-kill-widget
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -248,3 +249,4 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 source ~/.config/zsh/catppuccin_latte-zsh-syntax-highlighting.zsh
 source ~/dev/others/zsh-users-zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
