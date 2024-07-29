@@ -6,7 +6,6 @@
 }:
 {
   ### Sound Settings ==========================================================
-  sound.enable = false; # Only meant for ALSA-based configurations.
 
   security.rtkit.enable = true;
 
