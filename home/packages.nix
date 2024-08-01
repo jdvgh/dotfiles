@@ -24,6 +24,7 @@ in
     fuzzel
     wtype
     hyprkeys
+    hyprcursor
 
     zenity # For dialogs over githooks.
     graphviz
@@ -45,6 +46,8 @@ in
     ffmpegthumbnailer # For video thumbnails.
     trash-cli
     gnome-disk-utility
+    catppuccin-cursors.latteDark
+    silver-searcher
 
     # Programming
     (lib.hiPrio parallel)
