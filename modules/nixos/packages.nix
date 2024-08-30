@@ -58,7 +58,7 @@
     btop
     dig
     dracula-theme
-    gnome.gdm
+    gdm
     gnome.gnome-session
     adwaita-icon-theme # default gnome cursors
     gnumake
