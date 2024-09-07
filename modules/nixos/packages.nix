@@ -114,7 +114,7 @@
     # libguestfs # Needed to virt-sparsify qcow2 files
     # libvirt
     # spice # For automatic window resize if this conf is used as OS in VM
-    # spice-vdagent
-    # virt-manager
+    spice-vdagent
+    virt-manager
   ];
 }
