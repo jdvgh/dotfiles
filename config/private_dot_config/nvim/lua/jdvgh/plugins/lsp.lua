@@ -150,7 +150,7 @@ return {
                 tfsec = {
                     filetypes = { "terraform", "tf" },
                 },
-                tsserver = {},
+                ts_ls = {},
                 rust_analyzer = {},
                 lua_ls = {
                     -- cmd = {...},
