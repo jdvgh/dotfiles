@@ -108,9 +108,9 @@ in
 
     ## C
     gnumake
-    gcc
+    # gcc
     gdb
-    libclang
+    # libclang
     autoconf
     libtool
     pkg-config
