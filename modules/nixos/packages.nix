@@ -52,14 +52,14 @@
     gotemplate
 
     dmenu
-    gnome.gnome-control-center
+    gnome-control-center
     gnome-tweaks
 
     btop
     dig
     dracula-theme
     gdm
-    gnome.gnome-session
+    gnome-session
     adwaita-icon-theme # default gnome cursors
     gnumake
     grim # screenshot functionality
