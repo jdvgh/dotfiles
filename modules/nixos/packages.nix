@@ -10,6 +10,7 @@
     # Basic
     mkpasswd
     swaylock
+    brightnessctl
 
     gnutar
     gparted
