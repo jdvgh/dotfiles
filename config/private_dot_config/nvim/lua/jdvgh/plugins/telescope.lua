@@ -1,11 +1,11 @@
 return {
-  {   -- Fuzzy Finder (files, lsp, etc)
+  { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      {       -- If encountering errors, see telescope-fzf-native README for install instructions
+      { -- If encountering errors, see telescope-fzf-native README for install instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
         -- `build` is used to run some command when the plugin is installed/updated.
@@ -118,7 +118,62 @@ return {
       end, { desc = '[S]earch [N]eovim files' })
       vim.keymap.set('n', '<leader>sa', function()
         builtin.find_files { cwd = '~/dev/' }
-      end, { desc = '[S]earch [A]ll files in ~/dev/' })
+      end, { desc = '[S]earch [A]ll files in ~/dev/' }
+
+      )
+      vim.keymap.set({ 'n', 'v' },
+        "<leader>cct",
+        function()
+          local chat = require("CopilotChat")
+          chat.toggle()
+        end,
+        { desc = "[C]opilot[C]hat - [T]oggle" }
+      )
+      -- Show prompts actions with telescope
+      vim.keymap.set({ 'v' },
+        "<leader>ccp",
+        function()
+          local actions = require("CopilotChat.actions")
+          local integrations = require("CopilotChat.integrations.telescope")
+          integrations.pick(actions.prompt_actions())
+        end,
+        { desc = "[C]opilot[C]hat - [P]rompt actions" }
+      )
+      vim.keymap.set({ 'n' },
+        "<leader>sp",
+        function()
+          local previewers = require("telescope.previewers")
+          local pickers = require("telescope.pickers")
+          local sorters = require("telescope.sorters")
+          local finders = require("telescope.finders")
+          pickers
+              .new({}, {
+                results_title = "Modified in current branch",
+                finder = finders.new_oneshot_job({
+                  "git",
+                  "diff",
+                  "--name-only",
+                  "--diff-filter=ACMR",
+                  "origin...",
+                }, {}),
+                sorter = sorters.get_fuzzy_file(),
+                previewer = previewers.new_termopen_previewer({
+                  get_command = function(entry)
+                    return {
+                      "git",
+                      "diff",
+                      "--diff-filter=ACMR",
+                      "origin...",
+                      "--",
+                      entry.value,
+                    }
+                  end,
+                }),
+              })
+              :find()
+        end,
+        { desc = "[S]earch files changed on [P]R/branch" }
+      )
     end,
   },
 }
