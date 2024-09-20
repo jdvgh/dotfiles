@@ -44,6 +44,8 @@ return {
       luasnip.config.setup {}
 
       require("luasnip.loaders.from_vscode").lazy_load()
+      -- Registers copilot-chat source and enables it for copilot-chat filetype (so copilot chat window)
+      require("CopilotChat.integrations.cmp").setup()
 
       local has_words_before = function()
         if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
