@@ -12,7 +12,13 @@ return {
       -- OPTIONAL:
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
+      {
+        "rcarriga/nvim-notify", -- Notification plugin used by noice.
+        event = "VeryLazy",
+        opts = {
+          top_down = false, -- Notifications start at the bottom to stay out of your way.
+        },
+      },
     },
     config = function()
       require("noice").setup({
