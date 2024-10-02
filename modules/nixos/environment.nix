@@ -8,8 +8,6 @@ in
   ### Environment ================================================================
   environment = {
     shells = [ "/run/current-system/sw/bin/zsh" ];
-
-    enableAllTerminfo = true;
   };
 
   # Load home manager session variables.
