@@ -1,11 +1,9 @@
 {
   lib,
   pkgs,
-  inputs,
+  pkgsStable,
   ...
 }:
-let
-in
 # Define some special packages.
 {
   # List packages installed in system profile. To search, run:
@@ -164,7 +162,7 @@ in
     pandoc
 
     # MultiMedia
-    bitwarden # Password manager
+    pkgsStable.bitwarden # Password manager
     bitwarden-cli
     signal-desktop # Messaging app
     transmission_4-gtk

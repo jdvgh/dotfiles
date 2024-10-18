@@ -16,6 +16,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
+
     # Some custom hardware modules.
     hardwarejdvgh = {
       url = "github:jdvgh/nixos-hardware/feat/lenovo-legion-15-ach6";
