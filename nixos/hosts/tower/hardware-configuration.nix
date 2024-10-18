@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -30,6 +29,10 @@
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/773afb18-775f-4c48-b5bf-0a17ccabaa51";
+    fsType = "ext4";
+  };
+  fileSystems."/mnt/media/vms" = {
+    device = "dev/disks/by-uuid/2da579e9-4c09-4f94-a388-f11945286909";
     fsType = "ext4";
   };
   # fileSystems."/boot" = {
