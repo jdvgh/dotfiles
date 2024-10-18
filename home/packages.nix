@@ -162,7 +162,7 @@
     pandoc
 
     # MultiMedia
-    pkgsStable.bitwarden # Password manager
+    bitwarden # Password manager
     bitwarden-cli
     signal-desktop # Messaging app
     transmission_4-gtk
