@@ -32,7 +32,7 @@
     fsType = "ext4";
   };
   fileSystems."/mnt/media/vms" = {
-    device = "dev/disks/by-uuid/2da579e9-4c09-4f94-a388-f11945286909";
+    device = "/dev/disk/by-uuid/2da579e9-4c09-4f94-a388-f11945286909";
     fsType = "ext4";
   };
   # fileSystems."/boot" = {
