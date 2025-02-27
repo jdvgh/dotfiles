@@ -102,6 +102,10 @@ return {
           previewer = false,
         })
       end, { desc = '[S]earch current [B]uffer fuzzily' })
+      vim.keymap.set('x', '<leader>sb', function()
+        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        builtin.current_buffer_fuzzy_find()
+      end, { desc = '[S]earch current [B]uffer fuzzily' })
       --
       -- -- Also possible to pass additional configuration options.
       -- --  See `:help telescope.builtin.live_grep()` for information about particular keys
