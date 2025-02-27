@@ -21,14 +21,10 @@
       noto-fonts
       noto-fonts-emoji
       google-fonts
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "Noto"
-          "JetBrainsMono"
-          "SourceCodePro"
-        ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.noto
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.sauce-code-pro
     ];
   };
 
