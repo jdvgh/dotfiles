@@ -121,12 +121,6 @@ return {
                 bashls = {
                     filetypes = { "sh", "zsh" },
                 },
-                dockerls = {},
-                docker_compose_language_service = {},
-                earthlyls = {
-                    -- filetypes = { "Earthfile", "earthfile" },
-                    -- cmd = { "earthlyls" },
-                },
                 shellcheck = {
                     filetypes = { "sh", "zsh" },
                 },
@@ -140,18 +134,6 @@ return {
                 nil_ls = {
                     filetypes = { "nix" },
                 },
-                terraformls = {
-                    cmd = { "terraform-ls", "serve" },
-                    filetypes = { "terraform", "tf" },
-                },
-                tflint = {
-                    filetypes = { "terraform", "tf" },
-                },
-                tfsec = {
-                    filetypes = { "terraform", "tf" },
-                },
-                ts_ls = {},
-                rust_analyzer = {},
                 lua_ls = {
                     -- cmd = {...},
                     -- filetypes { ...},
