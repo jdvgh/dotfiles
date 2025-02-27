@@ -92,6 +92,7 @@
     texlab
     marksman
     lua-language-server
+    luarocks
     yaml-language-server
     yamllint
 
