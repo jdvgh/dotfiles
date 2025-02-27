@@ -10,11 +10,10 @@
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup {
-  'tpope/vim-sleuth',   -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'alexghergh/nvim-tmux-navigation',
   'mfussenegger/nvim-dap',
   'leoluz/nvim-dap-go',
-  'folke/neodev.nvim',
   { "rcarriga/nvim-dap-ui",  dependencies = { "mfussenegger/nvim-dap" } },
   {
     "williamboman/mason.nvim"

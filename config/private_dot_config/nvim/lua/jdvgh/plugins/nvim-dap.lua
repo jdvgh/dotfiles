@@ -24,7 +24,6 @@ return {
     config = function()
         local dap = require 'dap'
         local dapui = require 'dapui'
-        local neodev = require 'neodev'
 
         require('mason-nvim-dap').setup {
             -- Makes a best effort to setup the various debuggers with
@@ -83,10 +82,6 @@ return {
         dap.listeners.after.event_initialized['dapui_config'] = dapui.open
         dap.listeners.before.event_terminated['dapui_config'] = dapui.close
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
-        neodev.setup({
-            library = { plugins = { "nvim-dap-ui" }, types = true }
-        })
 
         -- Install golang specific config
         require('dap-go').setup()
